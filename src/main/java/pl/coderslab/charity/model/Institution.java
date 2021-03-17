@@ -12,8 +12,8 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "institution")
+public class Institution {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,10 @@ public class Category {
 
     private String name;
 
-    public Category(String name) {
+    private String description;
+
+    public Institution(String name, String description) {
         this.name = name;
+        this.description = description;
     }
 }
