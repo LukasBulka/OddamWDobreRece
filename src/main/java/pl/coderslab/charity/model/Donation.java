@@ -1,9 +1,6 @@
 package pl.coderslab.charity.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,9 +8,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name = "donation")
 public class Donation {
@@ -24,10 +19,10 @@ public class Donation {
 
     private Integer quantity;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Category> categories;
 
-    @OneToOne //ewentualnie z zmienic na @ManyToOne
+    @ManyToOne
     private Institution institution;
 
     private String street;
