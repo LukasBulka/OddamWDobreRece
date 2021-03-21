@@ -30,6 +30,7 @@ public class Donation {
     private String street;
     private String city;
     private String zipCode;
+    private String phone;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
@@ -43,6 +44,7 @@ public class Donation {
                     String street,
                     String city,
                     String zipCode,
+                    String phone,
                     LocalDate pickUpDate,
                     LocalTime pickUpTime,
                     String pickUpComment) {
@@ -52,6 +54,7 @@ public class Donation {
         this.street = street;
         this.city = city;
         this.zipCode = zipCode;
+        this.phone = phone;
         this.pickUpDate = pickUpDate;
         this.pickUpTime = pickUpTime;
         this.pickUpComment = pickUpComment;

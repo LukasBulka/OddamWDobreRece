@@ -70,30 +70,23 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
+            <c:forEach items="${institutions}" var="institution" varStatus="item" step="2">
+                <li>
+                    <c:set var="first" value="${institutions[item.index]}"/>
+                    <div class="col">
+                        <div class="title"><c:out value="${first.name}"/></div>
+                        <div class="subtitle"><c:out value="${first.description}"/></div>
+                    </div>
+                    <c:if test="${institutions.size() > item.index + 1}">
+                        <%--                <c:if test="${not item.last}">--%>
+                        <c:set var="second" value="${institutions[item.index + 1]}"/>
+                        <div class="col">
+                            <div class="title"><c:out value="${second.name}"/></div>
+                            <div class="subtitle"><c:out value="${second.description}"/></div>
+                        </div>
+                    </c:if>
+                </li>
+            </c:forEach>
         </ul>
     </div>
 
