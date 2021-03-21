@@ -1,6 +1,8 @@
 package pl.coderslab.charity.model;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,7 +30,30 @@ public class Donation {
     private String street;
     private String city;
     private String zipCode;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
+
     private LocalTime pickUpTime;
     private String pickUpComment;
+
+    public Donation(Integer quantity,
+                    List<Category> categories,
+                    Institution institution,
+                    String street,
+                    String city,
+                    String zipCode,
+                    LocalDate pickUpDate,
+                    LocalTime pickUpTime,
+                    String pickUpComment) {
+        this.quantity = quantity;
+        this.categories = categories;
+        this.institution = institution;
+        this.street = street;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.pickUpDate = pickUpDate;
+        this.pickUpTime = pickUpTime;
+        this.pickUpComment = pickUpComment;
+    }
 }
