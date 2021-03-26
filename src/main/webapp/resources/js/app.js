@@ -176,18 +176,51 @@ document.addEventListener("DOMContentLoaded", function() {
       const pickUpComment = summary.lastElementChild.children[1].lastElementChild.children[2];
 
       const quantityInput = document.getElementById("quantity");
-
-      let category = [];
-      const temp = [];
       const categoryInput = document.getElementsByName("categories");
+      const institutionInput = document.querySelectorAll("#institution");
+      const streetInput = document.getElementById("street");
+      const cityInput = document.getElementById("city");
+      const zipCodeInput = document.getElementById("zipCode");
+      const phoneInput = document.getElementById("phone");
+      const pickUpDateInput = document.getElementById("pickUpDate");
+      const pickUpTimeInput = document.getElementById("pickUpTime");
+      const pickUpCommentInput = document.getElementById("pickUpComment");
+
+      let categories = [];
+      const temp = [];
       for (let checkbox of categoryInput) {
         if (checkbox.checked) {
-          temp.push(checkbox.value);
-          category = temp.join(", ");
+          temp.push(checkbox.dataset.category);
+          categories = temp.join(", ");
         }
       }
 
-      numberOfBags.innerText = quantityInput.value + " / " + category;
+      let institutionValue = "";
+      for (let institution of institutionInput) {
+        if (institution.checked) {
+          institutionValue = institution.dataset.institution;
+        }
+      }
+
+      numberOfBags.innerText = quantityInput.value + " / " + categories;
+      institution.innerText = "Dla: " + institutionValue;
+      street.innerText = streetInput.value;
+      city.innerText = cityInput.value;
+      zipCode.innerText = zipCodeInput.value;
+      phone.innerText = phoneInput.value;
+      pickUpDate.innerText = pickUpDateInput.value;
+      pickUpTime.innerText = pickUpTimeInput.value;
+      pickUpComment.innerText = pickUpCommentInput.value;
+
+      console.log(quantityInput.value);
+      console.log(categoryInput.value);
+      console.log(institutionInput.value);
+      console.log(streetInput.value);
+      console.log(cityInput.value);
+      console.log(zipCodeInput.value);
+      console.log(pickUpDateInput.value);
+      console.log(pickUpTimeInput.value);
+      console.log(pickUpCommentInput.value);
     }
 
   }
