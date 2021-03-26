@@ -23,7 +23,9 @@ public class DonationController {
     private final InstitutionRepository institutionRepository;
     private final DonationRepository donationRepository;
 
-    public DonationController(CategoryRepository categoryRepository, InstitutionRepository institutionRepository, DonationRepository donationRepository) {
+    public DonationController(CategoryRepository categoryRepository,
+                              InstitutionRepository institutionRepository,
+                              DonationRepository donationRepository) {
         this.categoryRepository = categoryRepository;
         this.institutionRepository = institutionRepository;
         this.donationRepository = donationRepository;
@@ -38,7 +40,6 @@ public class DonationController {
     public List<Institution> getInstitutions() {
         return institutionRepository.findAll();
     }
-
 
     @GetMapping("/donationForm")
     public String showDonationForm(Model model) {

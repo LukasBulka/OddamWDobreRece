@@ -92,9 +92,15 @@
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
-                <form:checkboxes path="categories" items="${categories}"
-                                 itemLabel="name" itemValue="id"
-                                 delimiter="<br/>"/>
+                <c:forEach items="${categories}" var="category">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input type="checkbox" name="categories" value="${category.id}"/>
+                            <span class="checkbox"></span>
+                            <span class="description">${category.name}</span>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -108,7 +114,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity"/>
+                        <form:input path="quantity" id="quantity"/>
                     </label>
                 </div>
 
@@ -123,8 +129,18 @@
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
-                <form:radiobuttons path="institution" items="${institutions}" itemLabel="name" itemValue="id"
-                                   delimiter="<br/>"/>
+                <c:forEach items="${institutions}" var="institution">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input type="radio" name="institution" value="${institution.id}"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                            <div class="title">${institution.name}</div>
+                            <div class="subtitle">${institution.description}</div>
+                        </span>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>

@@ -164,6 +164,30 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      const summary = document.querySelector(".summary");
+      const numberOfBags = summary.firstElementChild.lastElementChild.children[0].lastElementChild;
+      const institution = summary.firstElementChild.lastElementChild.children[1].lastElementChild;
+      const street = summary.lastElementChild.children[0].lastElementChild.children[0];
+      const city = summary.lastElementChild.children[0].lastElementChild.children[1];
+      const zipCode = summary.lastElementChild.children[0].lastElementChild.children[2];
+      const phone = summary.lastElementChild.children[0].lastElementChild.children[3];
+      const pickUpDate = summary.lastElementChild.children[1].lastElementChild.children[0];
+      const pickUpTime = summary.lastElementChild.children[1].lastElementChild.children[1];
+      const pickUpComment = summary.lastElementChild.children[1].lastElementChild.children[2];
+
+      const quantityInput = document.getElementById("quantity");
+
+      let category = [];
+      const temp = [];
+      const categoryInput = document.getElementsByName("categories");
+      for (let checkbox of categoryInput) {
+        if (checkbox.checked) {
+          temp.push(checkbox.value);
+          category = temp.join(", ");
+        }
+      }
+
+      numberOfBags.innerText = quantityInput.value + " / " + category;
     }
 
   }
