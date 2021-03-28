@@ -52,4 +52,9 @@ public class DonationController {
         donationRepository.save(donation);
         return "redirect:/";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logoutForm";
+    }
 }
