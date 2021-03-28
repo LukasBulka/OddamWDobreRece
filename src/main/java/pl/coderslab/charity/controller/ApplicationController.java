@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dto.UserDto;
-import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.service.UserService;
 
 @Controller
