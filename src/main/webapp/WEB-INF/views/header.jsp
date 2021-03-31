@@ -38,8 +38,8 @@
 
 
     <c:if test="${not empty param.registrationSuccess}">
-        <div class="alert-box">
-            <div class="alert-info">Successfully registered</div>
+        <div class="info-box">
+            <div class="info-info">Successfully registered</div>
         </div>
     </c:if>
 

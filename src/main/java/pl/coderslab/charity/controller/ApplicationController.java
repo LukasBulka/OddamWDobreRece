@@ -28,8 +28,11 @@ public class ApplicationController {
 
     @PostMapping("/register")
     public String register(@ModelAttribute("user") UserDto userDto) {
-        userService.save(userDto);
-        return "redirect:/?registrationSuccess=true";
+        if (userDto.getPassword().equals(userDto.getPassword2())) {
+            userService.save(userDto);
+            return "redirect:/?registrationSuccess=true";
+        }
+        return "redirect:/application/register?registrationFailure=true";
     }
 
     @GetMapping("/login")
